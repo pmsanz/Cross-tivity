@@ -1,0 +1,12 @@
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\bin\Debug\Main.exe
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\bin\Debug\Main.pdb
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.Properties.Resources.resources
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.csproj.GenerateResource.Cache
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.exe
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.pdb
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.Form1.resources
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\bin\Debug\Main.exe.config
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\bin\Debug\Interop.WMPLib.dll
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Interop.WMPLib.dll
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.csproj.ResolveComReference.cache

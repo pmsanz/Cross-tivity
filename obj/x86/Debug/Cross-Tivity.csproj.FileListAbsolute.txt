@@ -1,0 +1,3 @@
+C:\Users\Pablo\Source\Repos\Cross-tivity\obj\x86\Debug\Cross-Tivity.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Source\Repos\Cross-tivity\obj\x86\Debug\Cross_Tivity.Main.resources
+C:\Users\Pablo\Source\Repos\Cross-tivity\obj\x86\Debug\Cross-Tivity.csproj.GenerateResource.Cache
