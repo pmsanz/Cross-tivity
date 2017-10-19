@@ -10,3 +10,4 @@ C:\Users\Pablo\Source\Repos\Cross-tivity\Main\bin\Debug\Main.exe.config
 C:\Users\Pablo\Source\Repos\Cross-tivity\Main\bin\Debug\Interop.WMPLib.dll
 C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Interop.WMPLib.dll
 C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.csproj.ResolveComReference.cache
+C:\Users\Pablo\Source\Repos\Cross-tivity\Main\obj\Debug\Main.Dialog.resources

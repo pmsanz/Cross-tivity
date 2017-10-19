@@ -23,7 +23,12 @@ namespace Main
        // private Int32 _dHours = 0;
         private Int32 _dMinutes = 1;
         private Int32 _dSeconds = 0;
-
+        private int _yPosition = 150;
+        private int _xPosition = 10;
+        private List<CheckBox> _lstChkTarea;
+        private List<CheckBox> _lstChkDescanso;
+        private int _maxChk = 10;
+        public int _lstPosition { get; set; }
         
 
           
@@ -45,12 +50,16 @@ namespace Main
             maskedTextBox1.Text = Convert.ToString(_tMinutes).PadLeft(2, '0') + "00";
             maskedTextBox2.Text = Convert.ToString(_dMinutes).PadLeft(2, '0') + "00";
 
-            _tTimer.Interval = (100);
-            _dTimer.Interval = (100);
+            _tTimer.Interval = (1);
+            _dTimer.Interval = (1);
 
 
             _tTimer.Tick += new EventHandler(_tTimer_Tick);
             _dTimer.Tick += new EventHandler(_dTimer_Tick);
+
+            _lstChkTarea = new List<CheckBox>();
+            _lstChkDescanso = new List<CheckBox>();
+            _lstPosition = 0;
 
             try
             {
@@ -95,10 +104,46 @@ namespace Main
                     EjecutarSonido();
                     CargarConfig();
                     _State = 0;
+
+                    using (Dialog form2 = new Dialog())
+                    {
+                        DialogResult dr = form2.ShowDialog(this);
+                        if (dr == DialogResult.Cancel)
+                        {
+                            form2.Close();
+                            _lstChkDescanso[_lstPosition].Checked = false;
+                            _lstPosition++;
+                        }
+                        else if (dr == DialogResult.OK)
+                        {
+
+                                _lstChkDescanso[_lstPosition].Checked = true;
+                                _lstPosition++;
+                        }
+
+                    }
+
+                    if (_maxChk != _lstPosition)
+                        Iniciar();
+                    else
+                    {
+                        ToggleAllButtons(true);
+                        _lstPosition = 0;
+                    }
                 }
             }
             MostrarActual();
 
+        }
+
+        private void ToggleAllButtons(bool enable) {
+           
+            button1.Enabled = enable;
+            tSumar.Enabled = enable;
+            tRestar.Enabled = enable;
+            dSumar.Enabled = enable;
+            dRestar.Enabled = enable;
+        
         }
 
         private void _tTimer_Tick(object sender, EventArgs e)
@@ -112,9 +157,25 @@ namespace Main
                 {
                     _tMinutes = 0;
                     EjecutarSonido();
-                    _dTimer.Start();
                     _tTimer.Stop();
-                   
+                    using (Dialog form2 = new Dialog())
+                    {
+                        DialogResult dr = form2.ShowDialog(this);
+                        if (dr == DialogResult.Cancel)
+                        {
+                            form2.Close();
+                            _lstChkTarea[_lstPosition].Checked = false;
+                            
+                        }
+                        else if (dr == DialogResult.OK)
+                        {
+
+                            _lstChkTarea[_lstPosition].Checked = true;
+                            
+                        }
+
+                    }
+                    _dTimer.Start();
                 }
             }
 
@@ -125,7 +186,7 @@ namespace Main
 
         private void Iniciar()
         {
-            
+            ToggleAllButtons(false);
             GuardarConfig();
             _tTimer.Start();
         }
@@ -221,8 +282,46 @@ namespace Main
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Iniciar();
+            
           //  EjecutarSonido();
+            if (_lstChkDescanso.Count == 0 && _lstChkTarea.Count == 0)
+                AgregarCheckBox();
+            Iniciar();
+        }
+
+        private void AgregarCheckBox()
+        {
+            for (int i = 0; i < _maxChk; i++)
+            {
+
+                CheckBox boxt;
+                CheckBox boxd;
+
+                //checkbox tarea
+                boxt = new CheckBox();
+                boxt.Tag = "Tarea";
+                boxt.Text = "Tarea" + _yPosition;
+                boxt.AutoSize = true;
+                boxt.Location = new Point(_xPosition, _yPosition); //vertical
+                //box.Location = new Point(i * 50, 10); //horizontal
+                this.Controls.Add(boxt);
+                _lstChkTarea.Add(boxt);
+                //_xPosition = _xPosition + 25;
+
+                //chkbox Descanso
+
+
+                boxd = new CheckBox();
+                boxd.Tag = "Descanso";
+                boxd.Text = "Descanso" + _yPosition;
+                boxd.AutoSize = true;
+                boxd.Location = new Point(_xPosition + 80, _yPosition); //vertical
+                //box.Location = new Point(i * 50, 10); //horizontal
+                this.Controls.Add(boxd);
+                _lstChkDescanso.Add(boxd);
+                _yPosition = _yPosition + 25;
+
+            }
 
         }
 
